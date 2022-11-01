@@ -14,8 +14,8 @@ buildscript {
 }
 
 plugins {
-    id("com.projectronin.interop.gradle.publish")
     id("com.projectronin.interop.gradle.version")
+    id("com.projectronin.interop.gradle.publish")
 }
 
 apply<net.pwall.json.kotlin.codegen.gradle.JSONSchemaCodegenPlugin>()
