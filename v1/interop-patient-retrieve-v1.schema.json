@@ -1,0 +1,25 @@
+{
+  "$id": "https://github.com/projectronin/ronin-contract-interop-patient-retrieve/blob/main/v1/interop-patient-retrieve-v1.schema.json",
+  "title": "Interop Patient Retrieve",
+  "description": "This event represents the Patient as retrieved from a client EMR by the Interops process.",
+  "type": "object",
+  "properties": {
+    "tenantId": {
+      "description": "The ID of the tenant for which the patient was retrieved",
+      "type": "string"
+    },
+    "fhirId": {
+      "description": "The FHIR ID associated to this resource. It should also be present in the JSON representation.",
+      "type": "string"
+    },
+    "patientJson": {
+      "description": "The JSON string representation of the Patient resource that was retrieved.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "tenantId",
+    "fhirId",
+    "patientJson"
+  ]
+}

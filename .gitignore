@@ -1,3 +1,8 @@
 docs/
 build/
 v*/version
+
+*.iml
+
+.gradle
+!gradle/wrapper/gradle-wrapper.jar
