@@ -8,8 +8,8 @@
       "description": "The ID of the tenant for which the resource was retrieved",
       "type": "string"
     },
-    "fhirId": {
-      "description": "The FHIR ID associated to this resource. It should also be present in the JSON representation.",
+    "resourceType": {
+      "description": "The FHIR resource type associated to this resource. It should also be present in the JSON representation.",
       "type": "string"
     },
     "resourceJson": {
@@ -19,7 +19,7 @@
   },
   "required": [
     "tenantId",
-    "fhirId",
+    "resourceType",
     "resourceJson"
   ]
 }
