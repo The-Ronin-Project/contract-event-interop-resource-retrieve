@@ -28,7 +28,7 @@ configure<net.pwall.json.kotlin.codegen.gradle.JSONSchemaCodegen> {
     packageName.set("com.projectronin.event.interop.patient.retrieve")
     inputs {
         inputFile {
-            file.set(file("v1/interop-patient-retrieve-v1.schema.json"))
+            file.set(file("v1/interop-resource-retrieve-v1.schema.json"))
             subPackage.set("v1")
         }
     }
