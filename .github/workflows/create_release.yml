@@ -6,7 +6,7 @@ on:
         description: 'Branch to release'
         type: string
         required: true
-        default: 'master'
+        default: 'main'
       version:
         description: 'Specific version to release as. Leave unset if discoverable'
         type: string
@@ -21,8 +21,22 @@ env:
   ronin.release: true
 
 jobs:
+  build_and_test:
+    name: build_and_test
+    if: ${{ github.event.inputs.skip_publish == 'false' }}
+    uses: projectronin/github/.github/workflows/event_contract_cicd.yaml@master
+    with:
+      schema_name: ronin-contract-interop-resource-retrieve
+      publish: true
+    secrets:
+      docker_username: ${{ secrets.NEXUS_DOCKER_USERNAME }}
+      docker_password: ${{ secrets.NEXUS_DOCKER_PASSWORD }}
+      nexus_user: ${{ secrets.NEXUS_RAW_USER }}
+      nexus_token: ${{ secrets.NEXUS_RAW_TOKEN }}
+
   tag:
     runs-on: self-hosted
+    needs: build_and_test
     steps:
       - uses: actions/checkout@v2
         with:
@@ -35,18 +49,6 @@ jobs:
           distribution: 'zulu'
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-
-      - name: Execute build
-        if: ${{ github.event.inputs.skip_publish == 'false' }}
-        uses: projectronin/github/.github/workflows/event_contract_cicd.yaml@master
-        with:
-          schema_name: ronin-contract-interop-resource-retrieve
-          publish: true
-        secrets:
-          docker_username: ${{ secrets.NEXUS_DOCKER_USERNAME }}
-          docker_password: ${{ secrets.NEXUS_DOCKER_PASSWORD }}
-          nexus_user: ${{ secrets.NEXUS_RAW_USER }}
-          nexus_token: ${{ secrets.NEXUS_RAW_TOKEN }}
 
       - name: Get version
         id: get-version
