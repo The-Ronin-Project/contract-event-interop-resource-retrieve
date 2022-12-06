@@ -1,9 +1,9 @@
-rootProject.name = "event-interop-patient-retrieve"
+rootProject.name = "event-interop-resource-retrieve"
 
 pluginManagement {
     plugins {
-        id("com.projectronin.interop.gradle.publish") version "2.2.0"
-        id("com.projectronin.interop.gradle.version") version "2.2.0"
+        id("com.projectronin.interop.gradle.publish") version "2.2.1"
+        id("com.projectronin.interop.gradle.version") version "2.2.1"
     }
 
     repositories {

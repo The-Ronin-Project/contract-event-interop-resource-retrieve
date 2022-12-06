@@ -12,7 +12,7 @@ jobs:
     name: build_and_test
     uses: projectronin/github/.github/workflows/event_contract_cicd.yaml@master
     with:
-      schema_name: ronin-contract-interop-patient-retrieve
+      schema_name: ronin-contract-interop-resource-retrieve
       publish: ${{ github.ref == 'refs/heads/main' }}
     secrets:
       docker_username: ${{ secrets.NEXUS_DOCKER_USERNAME }}
