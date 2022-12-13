@@ -9,7 +9,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("net.pwall.json:json-kotlin-gradle:0.84")
+        classpath("net.pwall.json:json-kotlin-gradle:0.85")
     }
 }
 
