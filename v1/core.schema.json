@@ -1,0 +1,783 @@
+{
+  "definitions": {
+    "Element": {
+      "description": "Base definition for all elements in a resource.",
+      "properties": {
+        "id": {
+          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+          "$ref": "primitives.schema.json#/definitions/string"
+        },
+        "extension": {
+          "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          },
+          "type": "array"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Extension": {
+      "description": "Optional Extension Element - found in all resources.",
+      "properties": {
+        "id": {
+          "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+          "$ref": "primitives.schema.json#/definitions/string"
+        },
+        "extension": {
+          "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+          "items": {
+            "$ref": "#/definitions/Extension"
+          },
+          "type": "array"
+        },
+        "url": {
+          "description": "Source of the definition for the extension code - a logical name or a URL.",
+          "$ref": "primitives.schema.json#/definitions/uri"
+        },
+        "_url": {
+          "description": "Extensions for url",
+          "$ref": "#/definitions/Element"
+        },
+        "valueBase64Binary": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^(\\s*([0-9a-zA-Z\\+/\u003d]){4}\\s*)+$",
+          "type": "string"
+        },
+        "_valueBase64Binary": {
+          "description": "Extensions for valueBase64Binary",
+          "$ref": "#/definitions/Element"
+        },
+        "valueBoolean": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^true|false$",
+          "type": "boolean"
+        },
+        "_valueBoolean": {
+          "description": "Extensions for valueBoolean",
+          "$ref": "#/definitions/Element"
+        },
+        "valueCanonical": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^\\S*$",
+          "type": "string"
+        },
+        "_valueCanonical": {
+          "description": "Extensions for valueCanonical",
+          "$ref": "#/definitions/Element"
+        },
+        "valueCode": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+          "type": "string"
+        },
+        "_valueCode": {
+          "description": "Extensions for valueCode",
+          "$ref": "#/definitions/Element"
+        },
+        "valueDate": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$",
+          "type": "string"
+        },
+        "_valueDate": {
+          "description": "Extensions for valueDate",
+          "$ref": "#/definitions/Element"
+        },
+        "valueDateTime": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$",
+          "type": "string"
+        },
+        "_valueDateTime": {
+          "description": "Extensions for valueDateTime",
+          "$ref": "#/definitions/Element"
+        },
+        "valueDecimal": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?([eE][+-]?[0-9]+)?$",
+          "type": "number"
+        },
+        "_valueDecimal": {
+          "description": "Extensions for valueDecimal",
+          "$ref": "#/definitions/Element"
+        },
+        "valueId": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^[A-Za-z0-9\\-\\.]{1,64}$",
+          "type": "string"
+        },
+        "_valueId": {
+          "description": "Extensions for valueId",
+          "$ref": "#/definitions/Element"
+        },
+        "valueInstant": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$",
+          "type": "string"
+        },
+        "_valueInstant": {
+          "description": "Extensions for valueInstant",
+          "$ref": "#/definitions/Element"
+        },
+        "valueInteger": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^-?([0]|([1-9][0-9]*))$",
+          "type": "number"
+        },
+        "_valueInteger": {
+          "description": "Extensions for valueInteger",
+          "$ref": "#/definitions/Element"
+        },
+        "valueMarkdown": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^[ \\r\\n\\t\\S]+$",
+          "type": "string"
+        },
+        "_valueMarkdown": {
+          "description": "Extensions for valueMarkdown",
+          "$ref": "#/definitions/Element"
+        },
+        "valueOid": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^urn:oid:[0-2](\\.(0|[1-9][0-9]*))+$",
+          "type": "string"
+        },
+        "_valueOid": {
+          "description": "Extensions for valueOid",
+          "$ref": "#/definitions/Element"
+        },
+        "valuePositiveInt": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^[1-9][0-9]*$",
+          "type": "number"
+        },
+        "_valuePositiveInt": {
+          "description": "Extensions for valuePositiveInt",
+          "$ref": "#/definitions/Element"
+        },
+        "valueString": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^[ \\r\\n\\t\\S]+$",
+          "type": "string"
+        },
+        "_valueString": {
+          "description": "Extensions for valueString",
+          "$ref": "#/definitions/Element"
+        },
+        "valueTime": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?$",
+          "type": "string"
+        },
+        "_valueTime": {
+          "description": "Extensions for valueTime",
+          "$ref": "#/definitions/Element"
+        },
+        "valueUnsignedInt": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^[0]|([1-9][0-9]*)$",
+          "type": "number"
+        },
+        "_valueUnsignedInt": {
+          "description": "Extensions for valueUnsignedInt",
+          "$ref": "#/definitions/Element"
+        },
+        "valueUri": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^\\S*$",
+          "type": "string"
+        },
+        "_valueUri": {
+          "description": "Extensions for valueUri",
+          "$ref": "#/definitions/Element"
+        },
+        "valueUrl": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^\\S*$",
+          "type": "string"
+        },
+        "_valueUrl": {
+          "description": "Extensions for valueUrl",
+          "$ref": "#/definitions/Element"
+        },
+        "valueUuid": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "pattern": "^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "type": "string"
+        },
+        "_valueUuid": {
+          "description": "Extensions for valueUuid",
+          "$ref": "#/definitions/Element"
+        },
+        "valueAddress": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Address"
+        },
+        "valueAge": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Age"
+        },
+        "valueAnnotation": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Annotation"
+        },
+        "valueAttachment": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Attachment"
+        },
+        "valueCodeableConcept": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/CodeableConcept"
+        },
+        "valueCoding": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Coding"
+        },
+        "valueContactPoint": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/ContactPoint"
+        },
+        "valueCount": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Count"
+        },
+        "valueDistance": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Distance"
+        },
+        "valueDuration": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Duration"
+        },
+        "valueHumanName": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/HumanName"
+        },
+        "valueIdentifier": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Identifier"
+        },
+        "valueMoney": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Money"
+        },
+        "valuePeriod": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Period"
+        },
+        "valueQuantity": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Quantity"
+        },
+        "valueRange": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Range"
+        },
+        "valueRatio": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Ratio"
+        },
+        "valueReference": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Reference"
+        },
+        "valueSampledData": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/SampledData"
+        },
+        "valueSignature": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Signature"
+        },
+        "valueTiming": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Timing"
+        },
+        "valueContactDetail": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/ContactDetail"
+        },
+        "valueContributor": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Contributor"
+        },
+        "valueDataRequirement": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/DataRequirement"
+        },
+        "valueExpression": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Expression"
+        },
+        "valueParameterDefinition": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/ParameterDefinition"
+        },
+        "valueRelatedArtifact": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/RelatedArtifact"
+        },
+        "valueTriggerDefinition": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/TriggerDefinition"
+        },
+        "valueUsageContext": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/UsageContext"
+        },
+        "valueDosage": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Dosage"
+        },
+        "valueMeta": {
+          "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+          "$ref": "datatypes.schema.json#/definitions/Meta"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ResourceList": {
+      "oneOf": [
+        {
+          "$ref": "Account-v1.schema.json#/definitions/Account"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ActivityDefinition"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/AdverseEvent"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/AllergyIntolerance"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Appointment"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/AppointmentResponse"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/AuditEvent"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Basic"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Binary"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/BiologicallyDerivedProduct"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/BodyStructure"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Bundle"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/CapabilityStatement"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/CarePlan"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/CareTeam"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/CatalogEntry"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ChargeItem"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ChargeItemDefinition"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Claim"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ClaimResponse"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ClinicalImpression"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/CodeSystem"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Communication"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/CommunicationRequest"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/CompartmentDefinition"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Composition"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ConceptMap"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Condition"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Consent"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Contract"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Coverage"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/CoverageEligibilityRequest"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/CoverageEligibilityResponse"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/DetectedIssue"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Device"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/DeviceDefinition"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/DeviceMetric"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/DeviceRequest"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/DeviceUseStatement"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/DiagnosticReport"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/DocumentManifest"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/DocumentReference"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/EffectEvidenceSynthesis"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Encounter"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Endpoint"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/EnrollmentRequest"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/EnrollmentResponse"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/EpisodeOfCare"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/EventDefinition"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Evidence"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/EvidenceVariable"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ExampleScenario"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ExplanationOfBenefit"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/FamilyMemberHistory"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Flag"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Goal"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/GraphDefinition"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Group"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/GuidanceResponse"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/HealthcareService"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ImagingStudy"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Immunization"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ImmunizationEvaluation"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ImmunizationRecommendation"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ImplementationGuide"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/InsurancePlan"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Invoice"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Library"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Linkage"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/List"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Location"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Measure"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MeasureReport"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Media"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Medication"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MedicationAdministration"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MedicationDispense"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MedicationKnowledge"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MedicationRequest"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MedicationStatement"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MedicinalProduct"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MedicinalProductAuthorization"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MedicinalProductContraindication"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MedicinalProductIndication"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MedicinalProductIngredient"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MedicinalProductInteraction"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MedicinalProductManufactured"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MedicinalProductPackaged"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MedicinalProductPharmaceutical"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MedicinalProductUndesirableEffect"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MessageDefinition"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MessageHeader"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/MolecularSequence"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/NamingSystem"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/NutritionOrder"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Observation"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ObservationDefinition"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/OperationDefinition"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/OperationOutcome"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Organization"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/OrganizationAffiliation"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Parameters"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Patient"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/PaymentNotice"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/PaymentReconciliation"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Person"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/PlanDefinition"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Practitioner"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/PractitionerRole"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Procedure"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Provenance"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Questionnaire"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/QuestionnaireResponse"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/RelatedPerson"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/RequestGroup"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ResearchDefinition"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ResearchElementDefinition"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ResearchStudy"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ResearchSubject"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/RiskAssessment"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/RiskEvidenceSynthesis"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Schedule"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/SearchParameter"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ServiceRequest"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Slot"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Specimen"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/SpecimenDefinition"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/StructureDefinition"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/StructureMap"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Subscription"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Substance"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/SubstanceNucleicAcid"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/SubstancePolymer"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/SubstanceProtein"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/SubstanceReferenceInformation"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/SubstanceSourceMaterial"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/SubstanceSpecification"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/SupplyDelivery"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/SupplyRequest"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/Task"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/TerminologyCapabilities"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/TestReport"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/TestScript"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/ValueSet"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/VerificationResult"
+        },
+        {
+          "$ref": "fhir-v1.schema.json#/definitions/VisionPrescription"
+        }
+      ]
+    }
+  }
+}
